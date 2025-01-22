@@ -1,0 +1,38 @@
+@use "./variables.scss" as *;
+
+@mixin flex($justify: space-between, $align: center, $gap: 2rem) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+@mixin font-clamp($size) {
+  @if $size == x-small {
+    font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+  } @else if $size == small {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+  } @else if $size == medium {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+  } @else if $size == large {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+  } @else if $size == x-large {
+    font-size: clamp(1.5rem, 5vw, 2.25rem);
+  } @else if $size == xx-large {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+  } @else {
+    @warn "Tamanho não definido! Use: x-small, small, medium, large, x-large, ou xx-large.";
+  }
+}
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == mobile {
+    @media (max-width: 767.98px) {
+      @content;
+    }
+  } @else if $breakpoint == tablet {
+    @media (min-width: 768px) and (max-width: 1023.98px) {
+      @content;
+    }
+  }
+}

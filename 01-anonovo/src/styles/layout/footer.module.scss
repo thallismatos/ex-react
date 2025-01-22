@@ -1,0 +1,33 @@
+@use "../utils/variables.scss" as *;
+@use "../utils/mixins.scss" as *;
+
+.footer {
+  @include flex;
+  padding: 3rem 3rem 1rem 3rem;
+
+  @include respond-to(mobile) {
+    flex-direction: column-reverse;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+  }
+  .infoFooter {
+    text-align: left;
+
+    p {
+      @include font-clamp(medium);
+      margin-bottom: 0.5rem;
+    }
+
+    @include respond-to(mobile) {
+      text-align: center;
+    }
+  }
+
+  ul {
+    @include flex($gap: 0.5rem, $justify: center);
+
+    img {
+      width: 2.5rem;
+    }
+  }
+}

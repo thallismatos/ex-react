@@ -1,0 +1,7 @@
+@use "./variables.scss" as *;
+
+body {
+  background: url("../../assets/Fundo.png") no-repeat;
+  background-size: 100% 100%;
+  background-attachment: fixed;
+}
